@@ -1,65 +1,150 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Card, CardContent, CardDescription, CardHeader, CardName } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+  Search,
+  BookPlus,
+  Pencil,
+  Trash2,
+} from "lucide-react";
 
-export default function Home() {
+export default function MenuPage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="min-h-screen bg-gradient-to-br from-violet-50 via-pink-50 to-yellow-50 p-10">
+
+      <div className="text-center space-y-4 mb-12">
+        <div className="text-6xl"></div>
+
+        <h1 className="text-5xl font-bold text-violet-700">
+          図書管理システム
+        </h1>
+
+        <p className="text-lg text-gray-500">
+          お気に入りの一冊を見つけよう
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-8">
+
+
+
+        {/* メニュー4：図書キーワード検索 */}
+        <Card className="rounded-3xl bg-violet-50 border-2 border-violet-200 shadow-lg ">
+          <CardHeader className="items-center text-center">
+
+            <div className="mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-violet-100">
+              <Search className="h-8 w-8 text-violet-600" />
+            </div>
+
+            <CardName className="text-xl text-violet-700">
+              図書検索
+            </CardName>
+
+            <CardDescription>
+              登録されている図書を検索します
+            </CardDescription>
+
+          </CardHeader>
+          <CardContent>
+            <Button
+              asChild
+              className=" w-full rounded-full bg-violet-400 hover:bg-violet-500 " >
+              <Link href="/api/books/search">検索画面へ</Link>
+            </Button>
+          </CardContent>
+        </Card>
+
+        {/* メニュー5：図書登録 */}
+        <Card className="rounded-3xl bg-pink-50 border-2 border-pink-200 shadow-lg">
+          <CardHeader className="items-center text-center">
+
+            <div className="mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-pink-100">
+              <BookPlus className="h-8 w-8 text-pink-600" />
+            </div>
+
+            <CardName className="text-xl text-pink-700">
+              図書登録
+            </CardName>
+
+            <CardDescription>
+              新しい図書をシステムに登録します
+            </CardDescription>
+
+          </CardHeader>
+
+          <CardContent>
+            <Button
+              asChild
+              className="w-full rounded-full bg-pink-400 hover:bg-pink-500"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              <Link href="/api/books/register">
+                登録画面へ
+              </Link>
+            </Button>
+          </CardContent>
+        </Card>
+
+        {/* メニュー6：図書変更 */}
+        <Card className="rounded-3xl bg-amber-50 border-2 border-amber-200 shadow-lg">
+          <CardHeader className="items-center text-center">
+
+            <div className="mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-amber-100">
+              <Pencil className="h-8 w-8 text-amber-600" />
+            </div>
+
+            <CardName className="text-xl text-amber-700">
+              図書変更
+            </CardName>
+
+            <CardDescription>
+              登録済みの図書情報を変更・更新します
+            </CardDescription>
+
+          </CardHeader>
+
+          <CardContent>
+            <Button
+              asChild
+              className="w-full rounded-full bg-amber-400 hover:bg-amber-500"
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+              <Link href="/api/books/update">
+                変更画面へ
+              </Link>
+            </Button>
+          </CardContent>
+        </Card>
+        {/* メニュー6：図書変更 */}
+        <Card className="rounded-3xl bg-rose-50 border-2 border-rose-200 shadow-lg">
+          <CardHeader className="items-center text-center">
+
+            <div className="mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-rose-100">
+              <Trash2 className="h-8 w-8 text-rose-600" />
+            </div>
+
+            <CardName className="text-xl text-rose-700">
+              図書削除
+            </CardName>
+
+            <CardDescription>
+              登録済みの図書情報を削除します
+            </CardDescription>
+
+          </CardHeader>
+
+          <CardContent>
+            <Button
+              asChild
+              className="w-full rounded-full bg-rose-400 hover:bg-rose-500"
+            >
+              <Link href="/api/books/delete">
+                削除画面へ
+              </Link>
+            </Button>
+          </CardContent>
+        </Card>
+
+
+      </div>
     </div>
   );
 }
