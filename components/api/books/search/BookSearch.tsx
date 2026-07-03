@@ -84,7 +84,7 @@ export const BookSearch = () => {
 
             <TableBody>
               {books.map((book) => (
-                <TableRow key={book.title}>
+                <TableRow key={book.bookId}>
                   <TableCell className="font-medium">{book.title}</TableCell>
                   <TableCell>{book.author}</TableCell>
                   <TableCell className="text-center">

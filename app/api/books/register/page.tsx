@@ -1,14 +1,10 @@
-import { RegisterBook } from "@/components/api/books/register/RegisterBook";
+import { BookRegister } from "@/components/api/books/register/BookRegister";
+
 /**
- * 演習 8-6 画面のコンポーネントとページを作成し、動作確認する
- * ユーザー登録ページ
- * URL: /api/users/register
+ * 演習 8-12 商品登録画面コンポーネントを実装し動作確認する
+ * URL: /api/products/register のルーティングページ
  */
-export default function RegisterBookPage() {
-    return (
-        <main className="container mx-auto py-8">
-            {/* UIコンポーネントを呼び出す */}
-            <RegisterBook />
-        </main>
-    );
+export default function Page() {
+     <main className="container mx-auto py-8"></main>
+    return <BookRegister />;
 }

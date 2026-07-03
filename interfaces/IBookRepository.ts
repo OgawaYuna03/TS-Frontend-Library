@@ -1,5 +1,5 @@
 import { Book } from "../models/Book";
-/**
+import { BookRegistration } from "@/models/BookRegistration";/**
  * 演習 6-2 データアクセスとサービスを実装する
  * 商品リポジトリインターフェース
  */
@@ -10,6 +10,11 @@ export interface IBookRepository {
      * @returns 検索にヒットした図書のリスト（非同期）
      */
     searchKeyword(keyword: string): Promise<Book[]>;
+   // existsByTitle(title: string): Promise<void>;
 
-    register(book: Book): Promise<void>;
+    register(book: BookRegistration): Promise<Book>;
+
+    update(bookId: string, book:BookRegistration):Promise<Book>;
+
+    delete(bookId:string):Promise<void>;
 }

@@ -47,7 +47,7 @@ export default function Header() {
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={`${navigationMenuTriggerStyle()} text-green-900 bg-transparent hover:bg-green-200`}>
-                <Link href="/api/books/update">図書削除</Link>
+                <Link href="/api/books/delete">図書削除</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
 

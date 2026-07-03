@@ -1,5 +1,4 @@
 import { BookCategory } from "./BookCategory";
-import { BookStock } from "./BookStock";
 /**
  * 演習 6-2 データアクセスとサービスを実装する
  * 商品インターフェイス

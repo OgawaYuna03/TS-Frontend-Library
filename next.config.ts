@@ -7,17 +7,25 @@ import type { NextConfig } from "next";
  */
 const nextConfig: NextConfig = {
   /* config options here */
- async rewrites() {
-  return [
-    {
-      source: "/proxy-api/books",
-      destination: "http://20.78.35.126/app2/library/api/books",
-    },
-    {
-      source: "/proxy-api/books/:path*",
-      destination: "http://20.78.35.126/app2/library/api/books/:path*",
-    },
-  ];
-}
+  async rewrites() {
+    return [
+      {
+        source: "/proxy-api/books",
+        destination: "http://20.78.35.126/app2/library/api/books",
+      },
+      {
+        source: "/proxy-api/books/:path*",
+        destination: "http://20.78.35.126/app2/library/api/books/:path*",
+      },
+      {
+        source: "/proxy-api/books",
+        destination: "http://20.78.35.126/app2/library/api/books",
+      },
+      {
+        source: "/proxy-api/categories",
+        destination: "http://20.78.35.126/app2/library/api/categories",
+      }
+    ];
+  }
 };
 export default nextConfig;

@@ -5,7 +5,13 @@ import { TYPES } from "./types";
 import { BookRepository } from "@/infrastructures/BookRepository";
 import { SearchBookService } from "@/services/SearchBookService";
 import { RegisterBookService } from "@/services/RegisterBookService";
+import { IBookCategoryRepository } from "@/interfaces/IBookCategoryRepository";
+import { BookCategoryRepository } from "@/infrastructures/BookCategoryRepository";
 import { IRegisterBookService } from "@/interfaces/IRegisterBookService";
+import { IUpdateBookService } from "@/interfaces/IUpdateBookService";
+import { UpdateBookService } from "@/services/UpdateBookService";
+import { IDeleteBookService } from "@/interfaces/IDeleteBookService";
+import { DeleteBookService } from "@/services/DeleteBookService";
 
 /**
  * 演習 6-2 データアクセスとサービスを実装する
@@ -20,6 +26,10 @@ container.bind<IBookRepository>(TYPES.IBookRepository).to(BookRepository);
 // サービス(ユースケース)の登録
 container.bind<ISearchBookService>(TYPES.ISearchBookService).to(SearchBookService);
 container.bind<IRegisterBookService>(TYPES.IRegisterBookService).to(RegisterBookService);
+container.bind<IBookCategoryRepository>(TYPES.IBookCategoryRepository).to(BookCategoryRepository);
+container.bind<IUpdateBookService>(TYPES.IUpdateBookService).to(UpdateBookService);
+container.bind<IDeleteBookService>(TYPES.IDeleteBookService).to(DeleteBookService);
+
 
 
 export { container };
